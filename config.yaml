@@ -1,0 +1,35 @@
+paths:
+  input_nodes: "data/nodes.json"
+  output_dir: "outputs/"
+  report_file: "outputs/report.txt"
+
+network:
+  communication_range_m: 500.0
+  inclusive_range: true
+
+scheduling:
+  algorithm: "vera-tdma"
+  initial_coloring: "dsatur"
+  enable_class_elimination: true
+  enable_kempe_refinement: true
+  deterministic: true
+  # optimization_time_budget_seconds: 30.0   # omit/null = unlimited (deterministic)
+
+exact_solver:
+  enabled: true
+  timeout_seconds: 10.0
+  max_nodes: 16
+
+validation:
+  independent_verification: true
+  check_matrix_consistency: true
+  check_conflicts: true
+  run_golden_tests: true
+  fail_on_verification_error: true
+
+output:
+  include_node_slot_mapping: true
+  include_slot_node_matrix: true
+  include_conflict_details: true
+  include_optimization_metrics: true
+  include_exact_solver_metrics: true
